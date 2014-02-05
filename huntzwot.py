@@ -70,3 +70,5 @@ class Testuje(unittest.TestCase):
         for exp in expected:
             self.assertIn(exp, out)
 
+if __name__ == '__main__':
+    unittest.main()
