@@ -1,6 +1,7 @@
 #!/bin/bash
 
 PRETEST_DIR=pretest-cloud
+BUILD_CMD=./test.sh
 TEST_CMD=./test.sh
 
 HERE=$PWD
@@ -14,4 +15,5 @@ rm -rf $PRETEST_DIR
 git clone $PRETEST_DIR || exit 1
 cd $PRETEST_DIR
 git checkout $BRANCH
+$BUILD_CMD || exit 1
 $TEST_CMD && echo '---SUCCESS'
