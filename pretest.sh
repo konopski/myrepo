@@ -16,4 +16,12 @@ git clone $PRETEST_DIR || exit 1
 cd $PRETEST_DIR
 git checkout $BRANCH
 $BUILD_CMD || exit 1
-$TEST_CMD && echo '---SUCCESS'
+$TEST_CMD
+RESULT=$?
+if [ $RESULT ]
+then
+    echo '---SUCCESS'
+else
+    echo '---FAILED'
+fi
+exit $RESULT
